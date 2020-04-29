@@ -12,7 +12,7 @@ from flask import Flask, jsonify
 ###########################
 # Data Base setup
 ###########################
-engine = create_engine("sqlite:///hawaii.sqlite")
+engine = create_engine("sqlite:///Resources/hawaii.sqlite")
 
 #Reflect the existing database into a new model
 Base = automap_base()
@@ -109,3 +109,6 @@ def stats(start=None, end=None):
         #Unravel results into a 1D and convert to a list
         temps = list(np.ravel(results))
         return jsonify(temps)
+
+if __name__ == "__main__":
+    app.run()
